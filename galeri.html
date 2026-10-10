@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arte Gallery</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="gallery-body">
+
+
+    <!-- NAVBAR -->
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="index.html">ARTE GALLERY</a>
+        </div>
+>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Ana Sayfa</a>
+            </li>
+
+            <li>
+                <a href="galeri.html">Galeri</a>
+            </li>
+
+            <li>
+                <a href="sanatcilar.html">Sanatçılar</a>
+            </li>
+
+            <li>
+                <a href="hakkimizda.html">Hakkımızda</a>
+            </li>
+
+            <li>
+                <a href="iletisim.html">İletişim</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- GALERİ -->
+
+    <main class="gallery-page">
+
+        <h1>Galeri</h1>
+
+        <p class="gallery-subtitle">
+            Sanatın en özel eserlerini keşfedin
+        </p>
+
+
+        <div class="gallery-grid">
+
+
+            <!-- ESER 1 -->
+
+            <div class="art-card" onclick="openArtwork(1)">
+
+                <img src="images/eser1.png" alt="İnci Küpeli Kız">
+
+                <h2>İnci Küpeli Kız</h2>
+
+                <p>Johannes Vermeer</p>
+
+            </div>
+
+
+
+            <!-- ESER 2 -->
+
+            <div class="art-card" onclick="openArtwork(2)">
+
+                <img src="images/eser2.png" alt="Ayçiçekleri">
+
+                <h2>Ayçiçekleri</h2>
+
+                <p>Vincent van Gogh</p>
+
+            </div>
+
+
+
+            <!-- ESER 3 -->
+
+            <div class="art-card" onclick="openArtwork(3)">
+
+                <img src="images/eser3.png" alt="Belleğin Azmi">
+
+                <h2>Belleğin Azmi</h2>
+
+                <p>Salvador Dalí</p>
+
+            </div>
+
+
+
+            <!-- ESER 4 -->
+
+            <div class="art-card" onclick="openArtwork(4)">
+
+                <img src="images/eser4.png" alt="Cafe Terrace at Night">
+
+                <h2>Cafe Terrace at Night</h2>
+
+                <p>Vincent van Gogh</p>
+
+            </div>
+
+
+
+            <!-- ESER 5 -->
+
+            <div class="art-card" onclick="openArtwork(5)">
+
+                <img src="images/eser5.png" alt="Madame Monet ve Oğlu">
+
+                <h2>Madame Monet ve Oğlu</h2>
+
+                <p>Claude Monet</p>
+
+            </div>
+
+
+
+            <!-- ESER 6 -->
+
+            <div class="art-card" onclick="openArtwork(6)">
+
+                <img src="images/eser6.png" alt="Mona Lisa">
+
+                <h2>Mona Lisa</h2>
+
+                <p>Leonardo da Vinci</p>
+
+            </div>
+
+
+
+            <!-- ESER 7 -->
+
+            <div class="art-card" onclick="openArtwork(7)">
+
+                <img src="images/eser7.png" alt="Çığlık">
+
+                <h2>Çığlık</h2>
+
+                <p>Edvard Munch</p>
+
+            </div>
+
+
+
+            <!-- ESER 8 -->
+
+            <div class="art-card" onclick="openArtwork(8)">
+
+                <img src="images/eser8.png" alt="The Elephants">
+
+                <h2>The Elephants</h2>
+
+                <p>Salvador Dalí</p>
+
+            </div>
+
+
+
+            <!-- ESER 9 -->
+
+            <div class="art-card" onclick="openArtwork(9)">
+
+                <img src="images/eser9.png" alt="Kaplumbağa Terbiyecisi">
+
+                <h2>Kaplumbağa Terbiyecisi</h2>
+
+                <p>Osman Hamdi Bey</p>
+
+            </div>
+
+
+
+            <!-- ESER 10 -->
+
+            <div class="art-card" onclick="openArtwork(10)">
+
+                <img src="images/eser10.png" alt="Mihrap">
+
+                <h2>Mihrap</h2>
+
+                <p>Osman Hamdi Bey</p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ESER BİLGİ PENCERESİ -->
+
+    <div id="artworkModal" class="artwork-modal">
+
+        <div class="artwork-box">
+
+
+            <!-- KAPATMA BUTONU -->
+
+            <button class="close-modal" onclick="closeArtwork()">
+                &times;
+            </button>
+
+
+            <!-- ESER RESMİ -->
+
+            <img id="modalImage" src="" alt="">
+
+
+            <!-- BİLGİLER -->
+
+            <div class="modal-content">
+
+                <h2 id="modalTitle"></h2>
+
+                <h3 id="modalArtist"></h3>
+
+                <p id="modalDescription"></p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

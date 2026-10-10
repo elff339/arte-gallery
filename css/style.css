@@ -1,0 +1,1169 @@
+/* ========================================
+   GENEL
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0d0d0d;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.header h1 {
+    font-size: 32px;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+.header p {
+    margin-top: 10px;
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   ANA SAYFA GALERİ / CAROUSEL
+   ======================================== */
+
+.gallery-container {
+    height: calc(100vh - 130px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1200px;
+
+    user-select: none;
+    cursor: grab;
+}
+
+.gallery-container:active {
+    cursor: grabbing;
+}
+
+
+/* ========================================
+   3D CAROUSEL
+   ======================================== */
+
+.carousel {
+    position: relative;
+
+    width: 240px;
+    height: 340px;
+
+    transform-style: preserve-3d;
+
+    transition: transform 0.1s ease-out;
+}
+
+
+/* ========================================
+   CAROUSEL KARTLARI
+   ======================================== */
+
+.card {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.7);
+
+    transform:
+        rotateY(calc(var(--i) * 45deg))
+        translateZ(420px);
+
+    transition: filter 0.3s;
+}
+
+
+/* CAROUSEL RESİMLERİ */
+
+.card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   NAVBAR
+   ======================================== */
+
+.navbar {
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 60px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    color: white;
+    font-size: 21px;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #aaa;
+}
+
+
+/* ========================================
+   GALERİ SAYFASI
+   ======================================== */
+
+/*
+   SADECE GALERİ SAYFASINDA SCROLL VAR.
+   ANA SAYFADAKİ body overflow:hidden
+   yapısına dokunmuyoruz.
+*/
+
+.gallery-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* GALERİ ANA ALANI */
+
+.gallery-page {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+
+/* ========================================
+   GALERİ BAŞLIĞI
+   ======================================== */
+
+.gallery-page > h1 {
+    text-align: center;
+
+    color: white;
+
+    font-size: 42px;
+    font-weight: 400;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 15px;
+}
+
+.gallery-subtitle {
+    text-align: center;
+
+    color: #999;
+
+    font-size: 16px;
+
+    margin-bottom: 60px;
+}
+
+
+/* ========================================
+   3 SÜTUNLU GALERİ
+   ======================================== */
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+}
+
+
+/* ========================================
+   ESER KARTLARI
+   ======================================== */
+
+.gallery-page .art-card {
+    background: #151515;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* ========================================
+   ESER RESİMLERİ
+   ======================================== */
+
+.gallery-page .art-card img {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* ========================================
+   ESER İSMİ
+   ======================================== */
+
+.gallery-page .art-card h2 {
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    margin-top: 18px;
+    margin-bottom: 7px;
+}
+
+
+/* ========================================
+   SANATÇI
+   ======================================== */
+
+.gallery-page .art-card p {
+    color: #888;
+
+    font-size: 14px;
+
+    margin: 0;
+}
+
+
+/* ========================================
+   HOVER
+   ======================================== */
+
+.gallery-page .art-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-page .art-card:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 900px) {
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ========================================
+   TELEFON
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-page {
+        width: 85%;
+    }
+
+}
+/* ================================= */
+/* ESER BİLGİ PENCERESİ */
+/* ================================= */
+
+.artwork-modal {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+
+/* PENCERE AÇILDIĞINDA */
+
+.artwork-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* BİLGİ KUTUSU */
+
+.artwork-box {
+
+    position: relative;
+
+    width: 850px;
+
+    max-width: 95%;
+
+    max-height: 90vh;
+
+    background: #151515;
+
+    border-radius: 8px;
+
+    overflow: auto;
+
+    display: flex;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+
+    transform: scale(0.9);
+
+    transition: 0.3s ease;
+}
+
+
+/* AÇILIRKEN BÜYÜME */
+
+.artwork-modal.active .artwork-box {
+
+    transform: scale(1);
+}
+
+
+/* ESER RESMİ */
+
+.artwork-box > img {
+
+    width: 45%;
+
+    min-height: 450px;
+
+    object-fit: cover;
+}
+
+
+/* YAZI ALANI */
+
+.modal-content {
+
+    flex: 1;
+
+    padding: 50px 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* ESER ADI */
+
+.modal-content h2 {
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+
+/* SANATÇI */
+
+.modal-content h3 {
+
+    color: #999;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+}
+
+
+/* AÇIKLAMA */
+
+.modal-content p {
+
+    color: #ccc;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* KAPATMA X */
+
+.close-modal {
+
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    color: white;
+
+    font-size: 28px;
+
+    line-height: 30px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    z-index: 10;
+
+    transition: 0.3s;
+}
+
+
+/* X ÜZERİNE GELİNCE */
+
+.close-modal:hover {
+
+    background: #333;
+
+    transform: rotate(90deg);
+}
+
+
+/* TELEFON */
+
+@media (max-width: 700px) {
+
+    .artwork-box {
+
+        flex-direction: column;
+
+        max-height: 90vh;
+    }
+
+
+    .artwork-box > img {
+
+        width: 100%;
+
+        height: 300px;
+
+        min-height: 0;
+    }
+
+
+    .modal-content {
+
+        padding: 30px 25px;
+    }
+
+
+    .modal-content h2 {
+
+        font-size: 24px;
+    }
+
+}
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ========================================
+   SANATÇILAR SAYFASI
+   ======================================== */
+
+.artists-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* SANATÇILAR ANA ALANI */
+
+.artists-page {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+
+/* BAŞLIK */
+
+.artists-page > h1 {
+    text-align: center;
+
+    color: white;
+
+    font-size: 42px;
+    font-weight: 400;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.artists-subtitle {
+    text-align: center;
+
+    color: #999;
+
+    font-size: 16px;
+
+    margin-bottom: 60px;
+}
+
+
+/* ========================================
+   3 SÜTUNLU SANATÇI LİSTESİ
+   ======================================== */
+
+.artists-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+}
+
+
+/* ========================================
+   SANATÇI KARTI
+   ======================================== */
+
+.artist-card {
+    background: #151515;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* SANATÇI FOTOĞRAFI */
+
+.artist-card img {
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* SANATÇI ADI */
+
+.artist-card h2 {
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    margin-top: 18px;
+
+    margin-bottom: 7px;
+}
+
+
+/* SANATÇI BİLGİSİ */
+
+.artist-card p {
+    color: #888;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+/* HOVER */
+
+.artist-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+
+.artist-card:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 900px) {
+
+    .artists-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ========================================
+   TELEFON
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .artists-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .artists-page {
+        width: 85%;
+    }
+
+}
+
+/* =========================
+   HAKKIMIZDA SAYFASI
+========================= */
+
+.about-body {
+    background-color: #f8f5f0;
+    color: #171717;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* ANA ALAN */
+
+.about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 60px;
+}
+
+
+/* ÜST BÖLÜM */
+
+.about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    min-height: 550px;
+}
+
+
+/* YAZI */
+
+.about-text {
+    width: 50%;
+}
+
+.about-small-title {
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+
+.about-text h1 {
+    font-family: Georgia, serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 30px;
+}
+
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+
+/* GÖRSEL */
+
+.about-image {
+    width: 45%;
+}
+
+
+.about-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* MİSYON VİZYON */
+
+.mission-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 80px;
+}
+
+
+.mission-card {
+    background-color: white;
+    padding: 45px;
+    border: 1px solid #e5e0d8;
+}
+
+
+.mission-card span {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #999;
+}
+
+
+.mission-card h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+
+.mission-card p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+
+/* ALINTI */
+
+.about-quote {
+    text-align: center;
+    padding: 100px 20px 40px;
+}
+
+
+.about-quote p {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-style: italic;
+    color: #333;
+}
+
+
+.about-quote span {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+
+/* MOBİL */
+
+@media (max-width: 768px) {
+
+    .about-page {
+        padding: 60px 25px;
+    }
+
+    .about-hero {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+
+    .about-text h1 {
+        font-size: 40px;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .mission-section {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ========================================
+   İLETİŞİM SAYFASI
+   ======================================== */
+
+.contact-body {
+    background-color: #f8f5f0;
+    color: #171717;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* ANA ALAN */
+
+.contact-page {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 140px 60px 100px;
+}
+
+
+/* İLETİŞİM BÖLÜMÜ */
+
+.contact-hero {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: center;
+
+    min-height: 650px;
+}
+
+
+/* SOL TARAF */
+
+.contact-info {
+    padding-right: 30px;
+}
+
+
+.contact-small-title {
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+
+    margin-bottom: 20px;
+}
+
+
+.contact-info h1 {
+    font-family: Georgia, serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    margin-bottom: 30px;
+}
+
+
+.contact-description {
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    max-width: 500px;
+
+    margin-bottom: 45px;
+}
+
+
+/* İLETİŞİM BİLGİLERİ */
+
+.contact-details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+.contact-item span {
+    display: block;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #999;
+
+    margin-bottom: 7px;
+}
+
+
+.contact-item p {
+    font-size: 15px;
+
+    color: #333;
+}
+
+
+/* FORM KUTUSU */
+
+.contact-form-box {
+    background-color: white;
+
+    padding: 45px;
+
+    border: 1px solid #e5e0d8;
+}
+
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+
+.form-group label {
+    display: block;
+
+    font-size: 13px;
+
+    color: #555;
+
+    margin-bottom: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #ddd7cf;
+
+    background-color: #faf9f7;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    font-size: 14px;
+
+    color: #222;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 140px;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #999;
+
+    background-color: white;
+}
+
+
+/* GÖNDER BUTONU */
+
+.contact-form-box button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    background-color: #171717;
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.contact-form-box button:hover {
+    background-color: #444;
+}
+
+
+/* ========================================
+   MOBİL
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    .contact-page {
+        padding: 100px 25px 60px;
+    }
+
+
+    .contact-hero {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .contact-info {
+        padding-right: 0;
+    }
+
+
+    .contact-info h1 {
+        font-size: 40px;
+    }
+
+
+    .contact-form-box {
+        padding: 30px 25px;
+    }
+
+}
